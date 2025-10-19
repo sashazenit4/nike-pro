@@ -3,18 +3,18 @@ class ReverseNumber
 {
     public function __construct(private readonly int $number){}
 
-//    public function exec(): int
-//    {
-//        $num = abs($this->number);
-//        $result = [];
-//        while ($num >= 10) {
-//            $result[] = $num % 10;
-//            $num = floor($num / 10);
-//        }
-//
-//        $result[] = $num % 10;
-//        return (int) implode('', $result);
-//    }
+    public function exec(): int
+    {
+        $num = abs($this->number);
+        $result = [];
+        while ($num >= 10) {
+            $result[] = $num % 10;
+            $num = (int)($num / 10);
+        }
+
+        $result[] = $num % 10;
+        return (int) implode('', $result);
+    }
 
     public function execMathematically(): int
     {
@@ -29,5 +29,5 @@ class ReverseNumber
     }
 }
 
-//echo (new ReverseNumber(328910218390312890))->exec() . PHP_EOL;
+echo (new ReverseNumber(328910218390312890))->exec() . PHP_EOL;
 echo (new ReverseNumber(328910218390312890))->execMathematically();
